@@ -1,0 +1,6 @@
+terraform*
+.terraform*
+.ssh
+.env
+
+kube_config_cluster.yml
