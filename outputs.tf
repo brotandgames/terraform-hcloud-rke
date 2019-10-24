@@ -1,3 +1,9 @@
-output "ipv4_addresses" {
-  value = ["${hcloud_server.this.*.ipv4_address}"]
+output "this" {
+  value = [
+    for index, node in var.nodes :
+    merge(
+      node,
+      hcloud_server.this[index]
+    )
+  ]
 }
