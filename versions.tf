@@ -6,6 +6,7 @@ terraform {
     local    = "~> 1.4"
     rke      = "~> 0.14"
     template = "~> 2.1"
+    null     = "~> 2.1"
   }
 
 }

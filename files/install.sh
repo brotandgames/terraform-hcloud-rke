@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-self=$${0##*/}
-echo "== $self Waiting 30 sec. for package managers ..."
-sleep 30
+self=${0##*/}
+echo "== $self Waiting 20 sec. for package managers ..."
+sleep 20
+
+DOCKER_VERSION="$1"
 
 echo "== $self Install Docker ${DOCKER_VERSION}"
 sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
