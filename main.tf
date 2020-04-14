@@ -1,6 +1,6 @@
 resource "hcloud_ssh_key" "this" {
   name       = "terraform-hcloud-rke"
-  public_key = file(var.ssh_public_key_path)
+  public_key = var.ssh_public_key
 }
 
 resource "hcloud_server" "this" {
@@ -16,7 +16,7 @@ resource "hcloud_server" "this" {
     connection {
       host        = self.ipv4_address
       type        = "ssh"
-      private_key = file(var.ssh_private_key_path)
+      private_key = var.ssh_private_key
     }
     source      = "${path.module}/files/install.sh"
     destination = "/tmp/install.sh"
@@ -26,7 +26,7 @@ resource "hcloud_server" "this" {
     connection {
       host        = self.ipv4_address
       type        = "ssh"
-      private_key = file(var.ssh_private_key_path)
+      private_key = var.ssh_private_key
     }
     inline = [
       "chmod +x /tmp/install.sh",
@@ -54,7 +54,8 @@ resource "rke_cluster" "this" {
       address = nodes.value.address
       user    = "root"
       role    = nodes.value.role
-      ssh_key = file(var.ssh_private_key_path)
+      ssh_key = var.ssh_private_key
+      hostname_override = nodes.value.name
     }
   }
 
