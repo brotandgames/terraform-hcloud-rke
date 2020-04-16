@@ -8,3 +8,9 @@ output "this" {
     )
   ]
 }
+
+output "hcloud_network_id" {
+  description = "Hetzner network id"
+  value = hcloud_network.this.id
+}
+
