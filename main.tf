@@ -65,3 +65,23 @@ resource "local_file" "kube_cluster_yaml" {
   filename          = "${path.root}/kube_config_cluster.yml"
   sensitive_content = rke_cluster.this.kube_config_yaml
 }
+
+
+resource "hcloud_network" "this" {
+  name = "terraform-hcloud-rke-${path.module}"
+  ip_range = "10.98.0.0/16"
+}
+
+resource "hcloud_network_subnet" "this" {
+  network_id = hcloud_network.this.id
+  type = "server"
+  ip_range = hcloud_network.this.ip_range
+  network_zone = "eu-central"
+}
+  
+resource "hcloud_server_network" "this" {
+  for_each = var.nodes
+  
+  server_id = hcloud_server.this[each.key].id
+  network_id = hcloud_network.this.id
+}
