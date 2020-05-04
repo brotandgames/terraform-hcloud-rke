@@ -6,21 +6,7 @@ Terraform Module to deploy a Kubernetes Cluster using RKE Provider in Hetzner Cl
 
 See `test/main.tf` for example usage of the module.
 
-After deploying your Kubernetes Cluster you can login to the Kubernetes Dashboard using the following steps:
-
-1. Get Kubernetes Dashboard token
-
-````
-kubectl --kubeconfig kube_config_cluster.yml -n kube-system describe secret $(kubectl --kubeconfig kube_config_cluster.yml -n kube-system get secret | grep admin-user | awk '{print $1}') | grep ^token: | awk '{ print $2 }'
-````
-
-2. Set up kubectl proxy
-
-````
-kubectl --kubeconfig kube_config_cluster.yml proxy"
-````
-
-3. Login with the token copied in the step before at http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+You might want to include the CSI driver for automatic provisioning of volumes by adding `https://raw.githubusercontent.com/hetznercloud/csi-driver/v1.2.3/deploy/kubernetes/hcloud-csi.yml` to `addons_include` variable. (Note: A configmap containing the api key needs to be added as well.)
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Providers
@@ -54,6 +40,24 @@ kubectl --kubeconfig kube_config_cluster.yml proxy"
 | this | List of node objects |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## Where to go further?
+
+After deploying your Kubernetes Cluster you can login to the Kubernetes Dashboard using the following steps:
+
+1. Get Kubernetes Dashboard token
+
+````
+kubectl --kubeconfig kube_config_cluster.yml -n kube-system describe secret $(kubectl --kubeconfig kube_config_cluster.yml -n kube-system get secret | grep admin-user | awk '{print $1}') | grep ^token: | awk '{ print $2 }'
+````
+
+2. Set up kubectl proxy
+
+````
+kubectl --kubeconfig kube_config_cluster.yml proxy"
+````
+
+3. Login with the token copied in the step before at http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 
 ## Contributing
 
