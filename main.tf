@@ -60,8 +60,3 @@ resource "rke_cluster" "this" {
 
   addons_include = var.addons_include
 }
-
-resource "local_file" "kube_cluster_yaml" {
-  filename          = "${path.root}/kube_config_cluster.yml"
-  sensitive_content = rke_cluster.this.kube_config_yaml
-}

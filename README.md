@@ -14,7 +14,6 @@ You might want to include the CSI driver for automatic provisioning of volumes b
 | Name | Version |
 |------|---------|
 | hcloud | ~> 1.14 |
-| local | ~> 1.4 |
 | rke | ~> 0.14 |
 
 ## Inputs
@@ -36,7 +35,7 @@ You might want to include the CSI driver for automatic provisioning of volumes b
 | ca\_cert | RKE k8s cluster CA certificate |
 | client\_cert | RKE k8s cluster client certificate |
 | client\_key | RKE k8s cluster client key |
-| kube\_config\_yaml\_path | Path of the kube\_config\_yaml file |
+| kube\_config\_yaml | RKE k8s cluster kube config yaml |
 | this | List of node objects |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

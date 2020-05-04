@@ -9,11 +9,6 @@ output "this" {
   ]
 }
 
-output "kube_config_yaml_path" {
-  description = "Path of the kube_config_yaml file"
-  value       = local_file.kube_cluster_yaml.filename
-}
-
 output "api_server_url" {
   description = "RKE k8s cluster api server url "
   value       = rke_cluster.this.api_server_url
@@ -37,3 +32,8 @@ output "ca_cert" {
   sensitive   = true
 }
 
+output "kube_config_yaml" {
+  description = "RKE k8s cluster kube config yaml"
+  value       = rke_cluster.this.kube_config_yaml
+  sensitive   = true
+}
