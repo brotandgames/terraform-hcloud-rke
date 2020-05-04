@@ -47,6 +47,10 @@ kubectl --kubeconfig kube_config_cluster.yml proxy"
 
 We encourage you to contribute to this project in whatever way you like!
 
+Report bugs/feature requests in the [issues](https://github.com/brotandgames/terraform-hcloud-rke/issues/new/choose) section.
+
+When contributing to this repository, please first discuss the change you wish to make via issue with the owners of this repository before making a change.
+
 ## Versioning
 
 [Semantic Versioning 2.x](https://semver.org/)
