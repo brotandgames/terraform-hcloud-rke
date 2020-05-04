@@ -1,6 +1,6 @@
 output "this" {
   description = "List of node objects"
-  value       = [
+  value = [
     for index, node in var.nodes :
     merge(
       node,
@@ -33,7 +33,7 @@ output "client_key" {
 
 output "ca_cert" {
   description = "RKE k8s cluster CA certificate"
-  value = rke_cluster.this.ca_crt
+  value       = rke_cluster.this.ca_crt
   sensitive   = true
 }
 
