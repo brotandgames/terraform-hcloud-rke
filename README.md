@@ -14,7 +14,7 @@ You might want to include the CSI driver for automatic provisioning of volumes b
 | Name | Version |
 |------|---------|
 | hcloud | ~> 1.14 |
-| rke | ~> 0.14 |
+| rke | ~> 1.0 |
 
 ## Inputs
 
