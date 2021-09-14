@@ -32,13 +32,13 @@ variable "nodes" {
 variable "image" {
   description = "Image"
   type        = string
-  default     = "ubuntu-16.04"
+  default     = "ubuntu-20.04"
 }
 
 variable "docker_version" {
   description = "Docker version to install on the nodes"
   type        = string
-  default     = "18.06.2"
+  default     = "19.03.13"
 }
 
 variable "addons_include" {

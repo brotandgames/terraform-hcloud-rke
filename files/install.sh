@@ -15,4 +15,4 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get update
 sudo apt list docker-ce -a
 # sudo apt-get install -y docker-ce=${DOCKER_VERSION}~ce~3-0~ubuntu-$(lsb_release -cs)
-sudo apt-get install -y docker-ce=${DOCKER_VERSION}~ce~3-0~ubuntu
+sudo apt-get install -y docker-ce=5:${DOCKER_VERSION}~3-0~ubuntu-focal

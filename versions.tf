@@ -1,12 +1,27 @@
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.13"
 
   required_providers {
-    hcloud   = "~> 1.14"
-    local    = "~> 1.4"
-    rke      = "~> 0.14"
-    template = "~> 2.1"
-    null     = "~> 2.1"
+    hcloud = {
+      source  = "hetznercloud/hcloud"
+      version = "~> 1.23"
+    }
+    local = {
+      source  = "hashicorp/local"
+      version = "~> 2.0"
+    }
+    rke = {
+      source  = "rancher/rke"
+      version = "~> 1.1"
+    }
+    template = {
+      source  = "hashicorp/template"
+      version = "~> 2.2"
+    }
+    null = {
+      source  = "hashicorp/null"
+      version = "~> 3.0"
+    }
   }
 
 }
