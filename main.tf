@@ -48,13 +48,15 @@ locals {
 }
 
 resource "rke_cluster" "this" {
-  dynamic nodes {
+  dynamic "nodes" {
     for_each = local.nodes_with_address
     content {
-      address = nodes.value.address
-      user    = "root"
-      role    = nodes.value.role
-      ssh_key = file(var.ssh_private_key_path)
+      address           = nodes.value.address
+      user              = "root"
+      role              = nodes.value.role
+      ssh_key           = file(var.ssh_private_key_path)
+      node_name         = nodes.value.node_name
+      hostname_override = nodes.value.hostname_override
     }
   }
 
